@@ -57,6 +57,22 @@ Como Feature Suggester, preciso que você:
    - Prioridade recomendada (P1, P2, P3)
 
 5. **Apresente um roadmap sugerido** com fases de implementação.
+
+6. **Recomende tecnologias para o projeto** considerando:
+   - Tipo de sistema e requisitos de escala
+   - Features sugeridas e suas demandas técnicas
+   - Tendências e maturidade do ecossistema
+   - Curva de aprendizado e disponibilidade de talentos
+   - Custo e licenciamento
+   - Integrações necessárias (pagamentos, IA, real-time, etc.)
+
+   Para cada camada, sugira opções com justificativa:
+   - **Frontend** (framework, state management, UI library)
+   - **Backend** (linguagem, framework, ORM)
+   - **Banco de dados** (relacional, NoSQL, cache)
+   - **Infraestrutura** (cloud, containers, CI/CD)
+   - **Mobile** (se aplicável)
+   - **Ferramentas auxiliares** (monitoramento, analytics, auth)
 ```
 
 ## Exemplos de Uso
@@ -126,6 +142,23 @@ Identifique:
 5. Inovações que nenhum concorrente oferece
 ```
 
+### Para Sugestão de Tecnologias
+```
+Com base no contexto do projeto:
+- Sistema: [TIPO]
+- Público: [DESCRIÇÃO]
+- Features planejadas: [LISTAR PRINCIPAIS]
+- Escala esperada: [PEQUENA/MÉDIA/GRANDE]
+- Equipe: [TAMANHO E EXPERIÊNCIA]
+
+Recomende a stack tecnológica completa com:
+1. Opção principal e alternativa para cada camada
+2. Justificativa alinhada às features sugeridas
+3. Trade-offs (performance, custo, manutenibilidade)
+4. Tecnologias emergentes aplicáveis ao domínio
+5. Stack mínima para MVP vs stack ideal para escala
+```
+
 ## Frameworks de Sugestão
 
 ### Matriz de Priorização
@@ -164,6 +197,9 @@ Roadmap sugerido com fases de implementação
 ### 5. value-proposition.md
 Proposta de valor única baseada nas features sugeridas
 
+### 6. tech-stack-suggestions.md
+Recomendações de tecnologias por camada (frontend, backend, banco, infra, mobile) com justificativas, alternativas e trade-offs
+
 ## Dicas de Uso
 
 1. **Seja específico nas diretrizes** - Quanto mais contexto, melhores as sugestões
@@ -175,7 +211,8 @@ Proposta de valor única baseada nas features sugeridas
 ## Integração com Outros Agentes
 
 - **Product Owner**: Valida e prioriza as sugestões
+- **Arquiteto de DDD**: Usa features e domínio para modelagem de Bounded Contexts
 - **UX Designer**: Desenha a experiência das features
-- **Architect**: Avalia viabilidade técnica
+- **Architect**: Refina e valida a stack tecnológica sugerida
 - **UI Designer**: Cria interfaces atraentes para as features
 - **Developers**: Implementam as features aprovadas

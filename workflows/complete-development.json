@@ -20,34 +20,42 @@
           "market-analysis.md",
           "competitive-analysis.md",
           "feature-roadmap.md",
-          "value-proposition.md"
+          "value-proposition.md",
+          "tech-stack-suggestions.md"
         ]
       },
       {
         "phase": "1. Planejamento e Análise",
-        "agents": ["product-owner", "ux", "ui-designer"],
+        "agents": ["product-owner", "ux", "ui-designer", "ddd-architect"],
         "duration": "1-2 semanas",
         "activities": [
           "Análise de requisitos",
           "Pesquisa de usuário",
           "Criação de personas",
           "Definição de user stories",
+          "Modelagem de domínio (DDD)",
+          "Definição de Bounded Contexts e Linguagem Ubíqua",
           "Wireframes iniciais"
         ],
         "outputs": [
           "requirements.md",
           "user-stories.md",
           "personas.md",
+          "bounded-contexts.md",
+          "domain-model.md",
+          "ubiquitous-language.md",
           "wireframes/"
         ]
       },
       {
         "phase": "2. Arquitetura e Design",
-        "agents": ["architect", "ux", "ui-designer"],
+        "agents": ["architect", "ddd-architect", "ux", "ui-designer"],
         "duration": "1 semana",
         "activities": [
           "Design da arquitetura",
+          "Refinamento do modelo de domínio",
           "Escolha de tecnologias",
+          "Mapeamento contexto-módulo",
           "Prototipação",
           "Design system",
           "Testes de usabilidade"
@@ -55,6 +63,8 @@
         "outputs": [
           "architecture-diagram.md",
           "tech-stack.md",
+          "aggregates-and-entities.md",
+          "context-map.md",
           "prototypes/",
           "design-system.md"
         ]
@@ -112,13 +122,14 @@
       }
     ],
     "collaboration_matrix": {
-      "feature-suggester": ["product-owner", "ux", "architect", "ui-designer"],
-      "product-owner": ["feature-suggester", "ux", "architect", "tester"],
-      "architect": ["feature-suggester", "product-owner", "frontend-dev", "backend-dev", "devops"],
-      "ux": ["feature-suggester", "product-owner", "frontend-dev"],
+      "feature-suggester": ["product-owner", "ux", "architect", "ddd-architect", "ui-designer"],
+      "product-owner": ["feature-suggester", "ux", "architect", "ddd-architect", "tester"],
+      "ddd-architect": ["product-owner", "feature-suggester", "architect", "backend-dev", "ux"],
+      "architect": ["feature-suggester", "ddd-architect", "product-owner", "frontend-dev", "backend-dev", "devops"],
+      "ux": ["feature-suggester", "product-owner", "ddd-architect", "frontend-dev"],
       "ui-designer": ["feature-suggester", "ux", "frontend-dev"],
       "frontend-dev": ["ux", "ui-designer", "backend-dev", "tester"],
-      "backend-dev": ["architect", "frontend-dev", "devops", "tester"],
+      "backend-dev": ["architect", "ddd-architect", "frontend-dev", "devops", "tester"],
       "devops": ["architect", "backend-dev", "tester"],
       "tester": ["product-owner", "frontend-dev", "backend-dev", "devops"]
     }

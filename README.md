@@ -4,10 +4,11 @@ Este molde automatiza o processo de desenvolvimento de software usando uma equip
 
 ## 🎯 Visão Geral
 
-O molde simula uma equipe de desenvolvimento completa com 11 agentes especializados:
+O molde simula uma equipe de desenvolvimento completa com 12 agentes especializados:
 
 - **Product Owner**: Define requisitos e prioridades do produto
 - **Arquiteto de Software**: Projeta a arquitetura e estrutura do sistema
+- **Arquiteto de DDD**: Modela o domínio de negócio com Domain-Driven Design
 - **Desenvolvedor Frontend**: Implementa a interface do usuário
 - **Desenvolvedor Backend**: Desenvolve APIs e lógica de negócio
 - **Profissional DevOps**: Gerencia infraestrutura e deploy
@@ -25,6 +26,7 @@ agent-team-template/
 ├── agents/                    # Configurações dos agentes
 │   ├── product-owner/
 │   ├── architect/
+│   ├── ddd-architect/
 │   ├── frontend-dev/
 │   ├── backend-dev/
 │   ├── devops/
@@ -42,6 +44,7 @@ agent-team-template/
 ├── templates/                 # Templates de prompts
 │   ├── product-owner-prompt.md
 │   ├── architect-prompt.md
+│   ├── ddd-architect-prompt.md
 │   ├── frontend-dev-prompt.md
 │   ├── backend-dev-prompt.md
 │   ├── devops-prompt.md
@@ -111,7 +114,12 @@ agent-team-template/
 ### Arquiteto de Software
 - **Responsabilidades**: Design de arquitetura, escolha de tecnologias, definição de padrões
 - **Expertise**: Arquitetura de sistemas, padrões de design, escalabilidade, segurança
-- **Colabora com**: Product Owner, DevOps, Desenvolvedores
+- **Colabora com**: Product Owner, Arquiteto de DDD, DevOps, Desenvolvedores
+
+### Arquiteto de DDD
+- **Responsabilidades**: Modelagem de domínio, Bounded Contexts, Linguagem Ubíqua, Agregados e Domain Events
+- **Expertise**: Domain-Driven Design, Event Storming, Context Mapping, CQRS, modelagem estratégica e tática
+- **Colabora com**: Product Owner, Arquiteto de Software, Backend Dev, UX
 
 ### Desenvolvedor Frontend
 - **Responsabilidades**: Implementação de interface, componentes reutilizáveis, responsividade
@@ -154,9 +162,9 @@ agent-team-template/
 - **Colabora com**: UX, UI Designer, Backend, Fullstack, Tester, DevOps
 
 ### Feature Suggester
-- **Responsabilidades**: Sugerir features atraentes e inovadoras, análise de mercado, identificar oportunidades de diferenciação
-- **Expertise**: Análise de mercado, ideação de funcionalidades, análise competitiva, proposta de valor, gamificação e engajamento
-- **Colabora com**: Product Owner, UX, Architect, UI Designer
+- **Responsabilidades**: Sugerir features atraentes e inovadoras, análise de mercado, identificar oportunidades de diferenciação, recomendar tecnologias
+- **Expertise**: Análise de mercado, ideação de funcionalidades, análise competitiva, proposta de valor, gamificação e engajamento, seleção de stack tecnológica
+- **Colabora com**: Product Owner, UX, Architect, Arquiteto de DDD, UI Designer
 - **Inputs necessários**: Diretrizes do usuário (tipo de sistema, público-alvo, objetivos de negócio)
 
 ## 🔄 Workflows Disponíveis
@@ -203,6 +211,7 @@ Cada agente possui templates de prompts específicos em `templates/`:
 
 - **product-owner-prompt.md**: Templates para análise de requisitos e user stories
 - **architect-prompt.md**: Templates para design de arquitetura e escolha de tecnologias
+- **ddd-architect-prompt.md**: Templates para modelagem de domínio com DDD
 - **frontend-dev-prompt.md**: Templates para implementação de componentes e otimização
 - **backend-dev-prompt.md**: Templates para desenvolvimento de APIs e lógica de negócio
 - **devops-prompt.md**: Templates para configuração de infraestrutura e deploy

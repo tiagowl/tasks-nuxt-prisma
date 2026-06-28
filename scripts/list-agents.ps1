@@ -23,6 +23,12 @@ $agents = @(
         expertise = @("Design de arquitetura", "Padroes de design", "Escalabilidade")
     },
     @{
+        key = "ddd-architect"
+        name = "Arquiteto de DDD"
+        description = "Modela o dominio de negocio com Domain-Driven Design"
+        expertise = @("Bounded Contexts", "Agregados e Entidades", "Linguagem Ubiqua", "Domain Events")
+    },
+    @{
         key = "frontend-dev"
         name = "Desenvolvedor Frontend"
         description = "Implementa interface do usuario"

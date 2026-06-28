@@ -74,9 +74,10 @@
 
 | Agente | Chave | Quando Usar |
 |--------|-------|-------------|
-| **Feature Suggester** | `feature-suggester` | Sugerir features inovadoras, análise de mercado |
+| **Feature Suggester** | `feature-suggester` | Sugerir features inovadoras, análise de mercado, recomendar tecnologias |
 | **Product Owner** | `product-owner` | Definir requisitos, user stories, priorizar |
 | **Arquiteto** | `architect` | Projetar arquitetura, escolher tecnologias |
+| **Arquiteto de DDD** | `ddd-architect` | Modelar domínio, Bounded Contexts, Linguagem Ubíqua |
 | **Frontend Dev** | `frontend-dev` | Implementar interface, componentes |
 | **Backend Dev** | `backend-dev` | Desenvolver APIs, lógica de negócio |
 | **DevOps** | `devops` | Configurar infraestrutura, deploy |
@@ -128,6 +129,7 @@ Como Product Owner, preciso que você analise os requisitos para um sistema de g
 ./scripts/activate-agent.ps1 feature-suggester
 ```
 *Forneça: tipo de sistema, público-alvo, objetivos de negócio*
+*Gera também: `tech-stack-suggestions.md` com recomendações de tecnologias*
 
 ### 1. **Product Owner** → Define requisitos e user stories
 ```powershell
@@ -139,23 +141,28 @@ Como Product Owner, preciso que você analise os requisitos para um sistema de g
 ./scripts/activate-agent.ps1 ux
 ```
 
-### 3. **Arquiteto** → Projeta arquitetura e escolhe tecnologias
+### 3. **Arquiteto de DDD** → Modela domínio e Bounded Contexts
+```powershell
+./scripts/activate-agent.ps1 ddd-architect
+```
+
+### 4. **Arquiteto** → Projeta arquitetura e escolhe tecnologias
 ```powershell
 ./scripts/activate-agent.ps1 architect
 ```
 
-### 4. **Desenvolvedores** → Implementam frontend e backend
+### 5. **Desenvolvedores** → Implementam frontend e backend
 ```powershell
 ./scripts/activate-agent.ps1 frontend-dev
 ./scripts/activate-agent.ps1 backend-dev
 ```
 
-### 5. **Tester** → Executa testes e valida qualidade
+### 6. **Tester** → Executa testes e valida qualidade
 ```powershell
 ./scripts/activate-agent.ps1 tester
 ```
 
-### 6. **DevOps** → Configura deploy e monitoramento
+### 7. **DevOps** → Configura deploy e monitoramento
 ```powershell
 ./scripts/activate-agent.ps1 devops
 ```

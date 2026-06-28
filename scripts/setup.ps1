@@ -29,7 +29,8 @@ foreach ($dir in $projectDirs) {
 # Copiar arquivos de configuracao
 $configFiles = @(
     "agents/product-owner/config.json",
-    "agents/architect/config.json", 
+    "agents/architect/config.json",
+    "agents/ddd-architect/config.json",
     "agents/frontend-dev/config.json",
     "agents/backend-dev/config.json",
     "agents/devops/config.json",
@@ -37,7 +38,8 @@ $configFiles = @(
     "agents/ux/config.json",
     "agents/fullstack-dev/config.json",
     "agents/ui-designer/config.json",
-    "agents/mobile-dev/config.json"
+    "agents/mobile-dev/config.json",
+    "agents/feature-suggester/config.json"
 )
 
 foreach ($configFile in $configFiles) {
@@ -61,7 +63,8 @@ $projectConfig = @{
         created = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
         agents = @(
             "product-owner",
-            "architect", 
+            "architect",
+            "ddd-architect",
             "frontend-dev",
             "backend-dev",
             "devops",
@@ -69,7 +72,8 @@ $projectConfig = @{
             "ux",
             "fullstack-dev",
             "ui-designer",
-            "mobile-dev"
+            "mobile-dev",
+            "feature-suggester"
         )
         workflows = @(
             "complete-development",
@@ -91,7 +95,8 @@ $cursorRules = @"
 
 ## Agentes Disponiveis
 - Product Owner: Define requisitos e prioridades
-- Arquiteto: Projeta arquitetura do sistema  
+- Arquiteto: Projeta arquitetura do sistema
+- Arquiteto de DDD: Modela dominio com Domain-Driven Design
 - Frontend Dev: Implementa interface do usuario
 - Backend Dev: Desenvolve APIs e logica de negocio
 - DevOps: Gerencia infraestrutura e deploy

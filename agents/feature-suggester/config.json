@@ -11,7 +11,8 @@
       "Inovação e diferenciação",
       "Gamificação e engajamento",
       "Monetização e modelos de negócio",
-      "Experiência do usuário atraente"
+      "Experiência do usuário atraente",
+      "Seleção e recomendação de tecnologias"
     ],
     "tools": [
       "market-analysis",
@@ -19,7 +20,8 @@
       "competitive-research",
       "value-proposition",
       "trend-analysis",
-      "user-engagement-patterns"
+      "user-engagement-patterns",
+      "tech-stack-recommendation"
     ],
     "workflow_steps": [
       "1. Coletar e analisar diretrizes do usuário",
@@ -28,19 +30,21 @@
       "4. Gerar ideias de features inovadoras",
       "5. Avaliar viabilidade e impacto de cada feature",
       "6. Priorizar features por valor e atratividade",
-      "7. Apresentar sugestões com justificativas"
+      "7. Recomendar stack tecnológica alinhada ao projeto",
+      "8. Apresentar sugestões com justificativas"
     ],
     "outputs": [
       "feature-suggestions.md",
       "market-analysis.md",
       "competitive-analysis.md",
       "feature-roadmap.md",
-      "value-proposition.md"
+      "value-proposition.md",
+      "tech-stack-suggestions.md"
     ],
     "collaboration": {
-      "works_with": ["product-owner", "ux", "architect", "ui-designer"],
+      "works_with": ["product-owner", "ux", "architect", "ddd-architect", "ui-designer"],
       "receives_from": ["stakeholders", "product-owner", "ux"],
-      "provides_to": ["product-owner", "architect", "ux", "frontend-dev", "backend-dev"]
+      "provides_to": ["product-owner", "architect", "ddd-architect", "ux", "frontend-dev", "backend-dev"]
     },
     "input_guidelines": {
       "required": [

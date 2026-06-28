@@ -14,11 +14,16 @@ param(
 $availableAgents = @{
     "product-owner" = "Product Owner"
     "architect" = "Arquiteto de Software"
+    "ddd-architect" = "Arquiteto de DDD"
     "frontend-dev" = "Desenvolvedor Frontend"
     "backend-dev" = "Desenvolvedor Backend"
     "devops" = "Profissional DevOps"
     "tester" = "Tester"
     "ux" = "UX Designer"
+    "fullstack-dev" = "Desenvolvedor Fullstack"
+    "ui-designer" = "UI Designer"
+    "mobile-dev" = "Desenvolvedor Mobile"
+    "feature-suggester" = "Feature Suggester"
 }
 
 if (!$availableAgents.ContainsKey($AgentName)) {

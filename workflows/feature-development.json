@@ -18,37 +18,42 @@
           "feature-suggestions.md",
           "market-analysis.md",
           "competitive-analysis.md",
-          "value-proposition.md"
+          "value-proposition.md",
+          "tech-stack-suggestions.md"
         ]
       },
       {
         "phase": "1. Análise da Feature",
-        "agents": ["product-owner", "ux", "ui-designer"],
+        "agents": ["product-owner", "ux", "ui-designer", "ddd-architect"],
         "duration": "2-3 dias",
         "activities": [
           "Definição de requisitos",
-          "Análise de impacto",
+          "Análise de impacto no domínio",
+          "Modelagem de agregados e eventos afetados",
           "Design da interface",
           "Validação com stakeholders"
         ],
         "outputs": [
           "feature-requirements.md",
+          "domain-impact-analysis.md",
           "ui-mockups/",
           "acceptance-criteria.md"
         ]
       },
       {
         "phase": "2. Planejamento Técnico",
-        "agents": ["architect", "backend-dev", "frontend-dev", "fullstack-dev", "ui-designer"],
+        "agents": ["architect", "ddd-architect", "backend-dev", "frontend-dev", "fullstack-dev", "ui-designer"],
         "duration": "1-2 dias",
         "activities": [
           "Análise de impacto técnico",
+          "Refinamento do modelo de domínio",
           "Definição de APIs",
           "Planejamento de componentes",
           "Estimativa de esforço"
         ],
         "outputs": [
           "technical-design.md",
+          "aggregates-and-entities.md",
           "api-specification.md",
           "component-plan.md"
         ]
@@ -102,7 +107,9 @@
       }
     ],
     "handoff_rules": {
-      "feature-suggester -> product-owner": "Sugestões de features priorizadas com análise de mercado",
+      "feature-suggester -> product-owner": "Sugestões de features priorizadas com análise de mercado e recomendações de tecnologia",
+      "product-owner -> ddd-architect": "Requisitos aprovados para modelagem de domínio",
+      "ddd-architect -> architect": "Modelo de domínio, Bounded Contexts e Context Map definidos",
       "product-owner -> architect": "Requisitos aprovados e critérios de aceitação definidos",
       "architect -> developers": "Design técnico aprovado e APIs especificadas",
       "developers -> tester": "Código implementado e testes unitários passando",
