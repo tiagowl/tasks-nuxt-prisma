@@ -77,7 +77,8 @@
 | **Feature Suggester** | `feature-suggester` | Sugerir features inovadoras, análise de mercado, recomendar tecnologias |
 | **Product Owner** | `product-owner` | Definir requisitos, user stories, priorizar |
 | **Arquiteto** | `architect` | Projetar arquitetura, escolher tecnologias |
-| **Arquiteto de DDD** | `ddd-architect` | Modelar domínio, Bounded Contexts, Linguagem Ubíqua |
+| **Arquiteto de DDD** *(opcional)* | `ddd-architect` | Modelar domínio, Bounded Contexts, Linguagem Ubíqua |
+| **Arquiteto de Soluções** *(opcional)* | `solution-architect` | Visão de solução, integrações, buy vs build |
 | **Frontend Dev** | `frontend-dev` | Implementar interface, componentes |
 | **Backend Dev** | `backend-dev` | Desenvolver APIs, lógica de negócio |
 | **DevOps** | `devops` | Configurar infraestrutura, deploy |
@@ -141,28 +142,35 @@ Como Product Owner, preciso que você analise os requisitos para um sistema de g
 ./scripts/activate-agent.ps1 ux
 ```
 
-### 3. **Arquiteto de DDD** → Modela domínio e Bounded Contexts
+### 3. **Arquiteto de Soluções** *(opcional)* → Visão de solução e integrações
+```powershell
+./scripts/activate-agent.ps1 solution-architect
+```
+*Use quando: integrações com legado/terceiros, enterprise, buy vs build*
+
+### 4. **Arquiteto de DDD** *(opcional)* → Modela domínio e Bounded Contexts
 ```powershell
 ./scripts/activate-agent.ps1 ddd-architect
 ```
+*Use quando: domínio complexo, múltiplos subdomínios, regras de negócio ricas*
 
-### 4. **Arquiteto** → Projeta arquitetura e escolhe tecnologias
+### 5. **Arquiteto** → Projeta arquitetura e escolhe tecnologias
 ```powershell
 ./scripts/activate-agent.ps1 architect
 ```
 
-### 5. **Desenvolvedores** → Implementam frontend e backend
+### 6. **Desenvolvedores** → Implementam frontend e backend
 ```powershell
 ./scripts/activate-agent.ps1 frontend-dev
 ./scripts/activate-agent.ps1 backend-dev
 ```
 
-### 6. **Tester** → Executa testes e valida qualidade
+### 7. **Tester** → Executa testes e valida qualidade
 ```powershell
 ./scripts/activate-agent.ps1 tester
 ```
 
-### 7. **DevOps** → Configura deploy e monitoramento
+### 8. **DevOps** → Configura deploy e monitoramento
 ```powershell
 ./scripts/activate-agent.ps1 devops
 ```

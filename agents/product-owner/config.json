@@ -30,9 +30,9 @@
       "acceptance-criteria.md"
     ],
     "collaboration": {
-      "works_with": ["architect", "ddd-architect", "ux", "tester"],
+      "works_with": ["architect", "ddd-architect", "solution-architect", "ux", "tester"],
       "receives_from": ["stakeholders", "business-analyst", "feature-suggester"],
-      "provides_to": ["architect", "ddd-architect", "frontend-dev", "backend-dev"]
+      "provides_to": ["architect", "ddd-architect", "solution-architect", "frontend-dev", "backend-dev"]
     }
   }
 }

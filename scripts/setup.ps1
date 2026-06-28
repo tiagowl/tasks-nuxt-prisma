@@ -31,6 +31,7 @@ $configFiles = @(
     "agents/product-owner/config.json",
     "agents/architect/config.json",
     "agents/ddd-architect/config.json",
+    "agents/solution-architect/config.json",
     "agents/frontend-dev/config.json",
     "agents/backend-dev/config.json",
     "agents/devops/config.json",
@@ -65,6 +66,7 @@ $projectConfig = @{
             "product-owner",
             "architect",
             "ddd-architect",
+            "solution-architect",
             "frontend-dev",
             "backend-dev",
             "devops",
@@ -96,7 +98,8 @@ $cursorRules = @"
 ## Agentes Disponiveis
 - Product Owner: Define requisitos e prioridades
 - Arquiteto: Projeta arquitetura do sistema
-- Arquiteto de DDD: Modela dominio com Domain-Driven Design
+- Arquiteto de DDD: Modela dominio com Domain-Driven Design (opcional)
+- Arquiteto de Solucoes: Visao de solucao e integracoes (opcional)
 - Frontend Dev: Implementa interface do usuario
 - Backend Dev: Desenvolve APIs e logica de negocio
 - DevOps: Gerencia infraestrutura e deploy

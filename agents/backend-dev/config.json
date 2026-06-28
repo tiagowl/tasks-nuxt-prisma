@@ -32,8 +32,8 @@
       "api-documentation.md"
     ],
     "collaboration": {
-      "works_with": ["architect", "ddd-architect", "frontend-dev", "devops"],
-      "receives_from": ["architect", "ddd-architect", "product-owner"],
+      "works_with": ["architect", "ddd-architect", "solution-architect", "frontend-dev", "devops"],
+      "receives_from": ["architect", "ddd-architect", "solution-architect", "product-owner"],
       "provides_to": ["frontend-dev", "tester", "devops"]
     }
   }

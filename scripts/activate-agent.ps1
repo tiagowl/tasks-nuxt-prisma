@@ -12,6 +12,7 @@ $availableAgents = @{
     "product-owner" = "Product Owner"
     "architect" = "Arquiteto de Software"
     "ddd-architect" = "Arquiteto de DDD"
+    "solution-architect" = "Arquiteto de Solucoes"
     "frontend-dev" = "Desenvolvedor Frontend"
     "backend-dev" = "Desenvolvedor Backend"
     "devops" = "Profissional DevOps"

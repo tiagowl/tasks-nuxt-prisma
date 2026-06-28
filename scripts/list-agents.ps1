@@ -25,8 +25,16 @@ $agents = @(
     @{
         key = "ddd-architect"
         name = "Arquiteto de DDD"
-        description = "Modela o dominio de negocio com Domain-Driven Design"
+        description = "Modela o dominio de negocio com Domain-Driven Design (opcional)"
         expertise = @("Bounded Contexts", "Agregados e Entidades", "Linguagem Ubiqua", "Domain Events")
+        optional = $true
+    },
+    @{
+        key = "solution-architect"
+        name = "Arquiteto de Solucoes"
+        description = "Define visao de solucao, integracoes e buy vs build (opcional)"
+        expertise = @("Visao de solucao", "Integracao com legado", "NFRs", "Buy vs build")
+        optional = $true
     },
     @{
         key = "frontend-dev"
@@ -85,7 +93,8 @@ $agents = @(
 )
 
 foreach ($agent in $agents) {
-    Write-Host "`n$($agent.name)" -ForegroundColor Yellow
+    $optionalLabel = if ($agent.optional) { " (opcional)" } else { "" }
+    Write-Host "`n$($agent.name)$optionalLabel" -ForegroundColor Yellow
     Write-Host "   Chave: $($agent.key)" -ForegroundColor Cyan
     Write-Host "   Descricao: $($agent.description)" -ForegroundColor White
     Write-Host "   Expertise: $($agent.expertise -join ', ')" -ForegroundColor Gray

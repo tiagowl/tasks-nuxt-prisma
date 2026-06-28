@@ -4,11 +4,12 @@ Este molde automatiza o processo de desenvolvimento de software usando uma equip
 
 ## 🎯 Visão Geral
 
-O molde simula uma equipe de desenvolvimento completa com 12 agentes especializados:
+O molde simula uma equipe de desenvolvimento completa com 13 agentes especializados:
 
 - **Product Owner**: Define requisitos e prioridades do produto
 - **Arquiteto de Software**: Projeta a arquitetura e estrutura do sistema
-- **Arquiteto de DDD**: Modela o domínio de negócio com Domain-Driven Design
+- **Arquiteto de DDD** *(opcional)*: Modela o domínio de negócio com Domain-Driven Design
+- **Arquiteto de Soluções** *(opcional)*: Define visão de solução, integrações e buy vs build
 - **Desenvolvedor Frontend**: Implementa a interface do usuário
 - **Desenvolvedor Backend**: Desenvolve APIs e lógica de negócio
 - **Profissional DevOps**: Gerencia infraestrutura e deploy
@@ -27,6 +28,7 @@ agent-team-template/
 │   ├── product-owner/
 │   ├── architect/
 │   ├── ddd-architect/
+│   ├── solution-architect/
 │   ├── frontend-dev/
 │   ├── backend-dev/
 │   ├── devops/
@@ -45,6 +47,7 @@ agent-team-template/
 │   ├── product-owner-prompt.md
 │   ├── architect-prompt.md
 │   ├── ddd-architect-prompt.md
+│   ├── solution-architect-prompt.md
 │   ├── frontend-dev-prompt.md
 │   ├── backend-dev-prompt.md
 │   ├── devops-prompt.md
@@ -114,12 +117,19 @@ agent-team-template/
 ### Arquiteto de Software
 - **Responsabilidades**: Design de arquitetura, escolha de tecnologias, definição de padrões
 - **Expertise**: Arquitetura de sistemas, padrões de design, escalabilidade, segurança
-- **Colabora com**: Product Owner, Arquiteto de DDD, DevOps, Desenvolvedores
+- **Colabora com**: Product Owner, Arquiteto de DDD *(opcional)*, Arquiteto de Soluções *(opcional)*, DevOps, Desenvolvedores
 
-### Arquiteto de DDD
+### Arquiteto de DDD *(opcional)*
 - **Responsabilidades**: Modelagem de domínio, Bounded Contexts, Linguagem Ubíqua, Agregados e Domain Events
 - **Expertise**: Domain-Driven Design, Event Storming, Context Mapping, CQRS, modelagem estratégica e tática
-- **Colabora com**: Product Owner, Arquiteto de Software, Backend Dev, UX
+- **Colabora com**: Product Owner, Arquiteto de Software, Arquiteto de Soluções, Backend Dev, UX
+- **Quando usar**: Domínio complexo, múltiplos subdomínios, regras de negócio ricas
+
+### Arquiteto de Soluções *(opcional)*
+- **Responsabilidades**: Visão de solução end-to-end, integrações, buy vs build, NFRs, migração
+- **Expertise**: Paisagem de integração, ecossistema enterprise, alinhamento negócio-tecnologia
+- **Colabora com**: Product Owner, Arquiteto de Software, Arquiteto de DDD, DevOps
+- **Quando usar**: Integrações com legado/terceiros, projetos enterprise, decisões buy vs build
 
 ### Desenvolvedor Frontend
 - **Responsabilidades**: Implementação de interface, componentes reutilizáveis, responsividade
@@ -212,6 +222,7 @@ Cada agente possui templates de prompts específicos em `templates/`:
 - **product-owner-prompt.md**: Templates para análise de requisitos e user stories
 - **architect-prompt.md**: Templates para design de arquitetura e escolha de tecnologias
 - **ddd-architect-prompt.md**: Templates para modelagem de domínio com DDD
+- **solution-architect-prompt.md**: Templates para visão de solução e integrações
 - **frontend-dev-prompt.md**: Templates para implementação de componentes e otimização
 - **backend-dev-prompt.md**: Templates para desenvolvimento de APIs e lógica de negócio
 - **devops-prompt.md**: Templates para configuração de infraestrutura e deploy

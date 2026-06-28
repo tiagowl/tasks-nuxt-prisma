@@ -2,6 +2,28 @@
   "workflow": {
     "name": "Desenvolvimento de Feature",
     "description": "Workflow para desenvolvimento de uma nova funcionalidade",
+    "optional_agents": [
+      {
+        "role": "solution-architect",
+        "name": "Arquiteto de Soluções",
+        "when_to_use": [
+          "Feature impacta integrações com sistemas externos",
+          "Decisão buy vs build para a capacidade",
+          "Requisitos de compliance ou SLA end-to-end"
+        ],
+        "recommended_phases": ["1. Análise da Feature", "2. Planejamento Técnico"]
+      },
+      {
+        "role": "ddd-architect",
+        "name": "Arquiteto de DDD",
+        "when_to_use": [
+          "Feature altera regras de negócio ou agregados existentes",
+          "Novo Bounded Context ou contexto delimitado",
+          "Domínio complexo com invariantes entre entidades"
+        ],
+        "recommended_phases": ["1. Análise da Feature", "2. Planejamento Técnico"]
+      }
+    ],
     "phases": [
       {
         "phase": "0. Ideação de Features",
@@ -24,39 +46,69 @@
       },
       {
         "phase": "1. Análise da Feature",
-        "agents": ["product-owner", "ux", "ui-designer", "ddd-architect"],
+        "agents": ["product-owner", "ux", "ui-designer"],
+        "optional_agents": ["solution-architect", "ddd-architect"],
         "duration": "2-3 dias",
         "activities": [
           "Definição de requisitos",
-          "Análise de impacto no domínio",
-          "Modelagem de agregados e eventos afetados",
           "Design da interface",
           "Validação com stakeholders"
         ],
+        "optional_activities": {
+          "solution-architect": [
+            "Análise de impacto no ecossistema e integrações",
+            "Avaliação buy vs build para a feature"
+          ],
+          "ddd-architect": [
+            "Análise de impacto no domínio",
+            "Modelagem de agregados e eventos afetados"
+          ]
+        },
         "outputs": [
           "feature-requirements.md",
-          "domain-impact-analysis.md",
           "ui-mockups/",
           "acceptance-criteria.md"
-        ]
+        ],
+        "optional_outputs": {
+          "solution-architect": [
+            "integration-impact-analysis.md"
+          ],
+          "ddd-architect": [
+            "domain-impact-analysis.md"
+          ]
+        }
       },
       {
         "phase": "2. Planejamento Técnico",
-        "agents": ["architect", "ddd-architect", "backend-dev", "frontend-dev", "fullstack-dev", "ui-designer"],
+        "agents": ["architect", "backend-dev", "frontend-dev", "fullstack-dev", "ui-designer"],
+        "optional_agents": ["solution-architect", "ddd-architect"],
         "duration": "1-2 dias",
         "activities": [
           "Análise de impacto técnico",
-          "Refinamento do modelo de domínio",
           "Definição de APIs",
           "Planejamento de componentes",
           "Estimativa de esforço"
         ],
+        "optional_activities": {
+          "solution-architect": [
+            "Definição de contratos de integração",
+            "Validação de NFRs da feature no ecossistema"
+          ],
+          "ddd-architect": [
+            "Refinamento do modelo de domínio",
+            "Atualização de agregados e domain events"
+          ]
+        },
         "outputs": [
           "technical-design.md",
-          "aggregates-and-entities.md",
           "api-specification.md",
           "component-plan.md"
-        ]
+        ],
+        "optional_outputs": {
+          "ddd-architect": [
+            "aggregates-and-entities.md"
+          ]
+        }
       },
       {
         "phase": "3. Implementação",
@@ -108,8 +160,11 @@
     ],
     "handoff_rules": {
       "feature-suggester -> product-owner": "Sugestões de features priorizadas com análise de mercado e recomendações de tecnologia",
-      "product-owner -> ddd-architect": "Requisitos aprovados para modelagem de domínio",
-      "ddd-architect -> architect": "Modelo de domínio, Bounded Contexts e Context Map definidos",
+      "product-owner -> solution-architect": "[Opcional] Requisitos para visão de solução e integrações",
+      "solution-architect -> ddd-architect": "[Opcional] Limites de contexto derivados do ecossistema",
+      "product-owner -> ddd-architect": "[Opcional] Requisitos aprovados para modelagem de domínio",
+      "solution-architect -> architect": "[Opcional] Visão de solução, NFRs e paisagem de integração",
+      "ddd-architect -> architect": "[Opcional] Modelo de domínio, Bounded Contexts e Context Map",
       "product-owner -> architect": "Requisitos aprovados e critérios de aceitação definidos",
       "architect -> developers": "Design técnico aprovado e APIs especificadas",
       "developers -> tester": "Código implementado e testes unitários passando",

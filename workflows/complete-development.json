@@ -2,6 +2,30 @@
   "workflow": {
     "name": "Desenvolvimento Completo",
     "description": "Workflow completo do conceito ao deploy",
+    "optional_agents": [
+      {
+        "role": "solution-architect",
+        "name": "Arquiteto de Soluções",
+        "when_to_use": [
+          "Integração com sistemas legados, ERPs, CRMs ou terceiros",
+          "Projetos enterprise ou B2B",
+          "Decisões buy vs build",
+          "Migração ou transformação digital"
+        ],
+        "recommended_phases": ["1. Planejamento e Análise", "2. Arquitetura e Design"]
+      },
+      {
+        "role": "ddd-architect",
+        "name": "Arquiteto de DDD",
+        "when_to_use": [
+          "Domínio de negócio complexo com múltiplos subdomínios",
+          "Necessidade de Bounded Contexts e Linguagem Ubíqua",
+          "Regras de negócio ricas entre agregados",
+          "Projetos de médio/grande porte com evolução contínua do modelo"
+        ],
+        "recommended_phases": ["1. Planejamento e Análise", "2. Arquitetura e Design"]
+      }
+    ],
     "phases": [
       {
         "phase": "0. Descoberta e Ideação",
@@ -26,48 +50,87 @@
       },
       {
         "phase": "1. Planejamento e Análise",
-        "agents": ["product-owner", "ux", "ui-designer", "ddd-architect"],
+        "agents": ["product-owner", "ux", "ui-designer"],
+        "optional_agents": ["solution-architect", "ddd-architect"],
         "duration": "1-2 semanas",
         "activities": [
           "Análise de requisitos",
           "Pesquisa de usuário",
           "Criação de personas",
           "Definição de user stories",
-          "Modelagem de domínio (DDD)",
-          "Definição de Bounded Contexts e Linguagem Ubíqua",
           "Wireframes iniciais"
         ],
+        "optional_activities": {
+          "solution-architect": [
+            "Mapeamento do ecossistema e integrações",
+            "Definição da visão de solução end-to-end",
+            "Análise buy vs build",
+            "Documentação de NFRs da solução"
+          ],
+          "ddd-architect": [
+            "Modelagem de domínio (DDD)",
+            "Definição de Bounded Contexts e Linguagem Ubíqua"
+          ]
+        },
         "outputs": [
           "requirements.md",
           "user-stories.md",
           "personas.md",
-          "bounded-contexts.md",
-          "domain-model.md",
-          "ubiquitous-language.md",
           "wireframes/"
-        ]
+        ],
+        "optional_outputs": {
+          "solution-architect": [
+            "solution-overview.md",
+            "integration-landscape.md",
+            "buy-vs-build-analysis.md",
+            "nfr-matrix.md"
+          ],
+          "ddd-architect": [
+            "bounded-contexts.md",
+            "domain-model.md",
+            "ubiquitous-language.md"
+          ]
+        }
       },
       {
         "phase": "2. Arquitetura e Design",
-        "agents": ["architect", "ddd-architect", "ux", "ui-designer"],
+        "agents": ["architect", "ux", "ui-designer"],
+        "optional_agents": ["solution-architect", "ddd-architect"],
         "duration": "1 semana",
         "activities": [
           "Design da arquitetura",
-          "Refinamento do modelo de domínio",
           "Escolha de tecnologias",
-          "Mapeamento contexto-módulo",
           "Prototipação",
           "Design system",
           "Testes de usabilidade"
         ],
+        "optional_activities": {
+          "solution-architect": [
+            "Refinamento da paisagem de integração",
+            "Estratégia de migração e adoção"
+          ],
+          "ddd-architect": [
+            "Refinamento do modelo de domínio",
+            "Mapeamento contexto-módulo",
+            "Definição de agregados e domain events"
+          ]
+        },
         "outputs": [
           "architecture-diagram.md",
           "tech-stack.md",
-          "aggregates-and-entities.md",
-          "context-map.md",
           "prototypes/",
           "design-system.md"
-        ]
+        ],
+        "optional_outputs": {
+          "solution-architect": [
+            "migration-strategy.md"
+          ],
+          "ddd-architect": [
+            "aggregates-and-entities.md",
+            "context-map.md",
+            "domain-events.md"
+          ]
+        }
       },
       {
         "phase": "3. Desenvolvimento",
@@ -122,15 +185,16 @@
       }
     ],
     "collaboration_matrix": {
-      "feature-suggester": ["product-owner", "ux", "architect", "ddd-architect", "ui-designer"],
-      "product-owner": ["feature-suggester", "ux", "architect", "ddd-architect", "tester"],
-      "ddd-architect": ["product-owner", "feature-suggester", "architect", "backend-dev", "ux"],
-      "architect": ["feature-suggester", "ddd-architect", "product-owner", "frontend-dev", "backend-dev", "devops"],
+      "feature-suggester": ["product-owner", "ux", "architect", "solution-architect", "ddd-architect", "ui-designer"],
+      "product-owner": ["feature-suggester", "ux", "architect", "solution-architect", "ddd-architect", "tester"],
+      "solution-architect": ["product-owner", "feature-suggester", "architect", "ddd-architect", "devops"],
+      "ddd-architect": ["product-owner", "feature-suggester", "solution-architect", "architect", "backend-dev", "ux"],
+      "architect": ["feature-suggester", "solution-architect", "ddd-architect", "product-owner", "frontend-dev", "backend-dev", "devops"],
       "ux": ["feature-suggester", "product-owner", "ddd-architect", "frontend-dev"],
       "ui-designer": ["feature-suggester", "ux", "frontend-dev"],
       "frontend-dev": ["ux", "ui-designer", "backend-dev", "tester"],
-      "backend-dev": ["architect", "ddd-architect", "frontend-dev", "devops", "tester"],
-      "devops": ["architect", "backend-dev", "tester"],
+      "backend-dev": ["architect", "solution-architect", "ddd-architect", "frontend-dev", "devops", "tester"],
+      "devops": ["architect", "solution-architect", "backend-dev", "tester"],
       "tester": ["product-owner", "frontend-dev", "backend-dev", "devops"]
     }
   }

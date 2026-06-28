@@ -2,6 +2,7 @@
   "agent": {
     "name": "Arquiteto de DDD",
     "role": "ddd-architect",
+    "optional": true,
     "description": "Modela o domínio de negócio usando Domain-Driven Design, definindo contextos delimitados, agregados e linguagem ubíqua",
     "expertise": [
       "Domain-Driven Design (DDD)",
@@ -39,9 +40,16 @@
       "domain-events.md",
       "context-map.md"
     ],
+    "when_to_use": [
+      "Domínio de negócio complexo com múltiplos subdomínios",
+      "Necessidade de Bounded Contexts e Linguagem Ubíqua compartilhada",
+      "Regras de negócio ricas e invariantes entre agregados",
+      "Integrações entre contextos de domínio distintos",
+      "Projetos de médio/grande porte com evolução contínua do modelo"
+    ],
     "collaboration": {
-      "works_with": ["product-owner", "architect", "backend-dev", "ux"],
-      "receives_from": ["product-owner", "feature-suggester", "ux"],
+      "works_with": ["product-owner", "architect", "solution-architect", "backend-dev", "ux"],
+      "receives_from": ["product-owner", "feature-suggester", "solution-architect", "ux"],
       "provides_to": ["architect", "backend-dev", "product-owner", "frontend-dev"]
     },
     "input_guidelines": {

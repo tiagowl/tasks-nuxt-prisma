@@ -42,9 +42,9 @@
       "tech-stack-suggestions.md"
     ],
     "collaboration": {
-      "works_with": ["product-owner", "ux", "architect", "ddd-architect", "ui-designer"],
+      "works_with": ["product-owner", "ux", "architect", "ddd-architect", "solution-architect", "ui-designer"],
       "receives_from": ["stakeholders", "product-owner", "ux"],
-      "provides_to": ["product-owner", "architect", "ddd-architect", "ux", "frontend-dev", "backend-dev"]
+      "provides_to": ["product-owner", "architect", "ddd-architect", "solution-architect", "ux", "frontend-dev", "backend-dev"]
     },
     "input_guidelines": {
       "required": [

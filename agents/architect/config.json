@@ -33,8 +33,8 @@
       "development-guidelines.md"
     ],
     "collaboration": {
-      "works_with": ["product-owner", "ddd-architect", "devops", "backend-dev"],
-      "receives_from": ["product-owner", "ddd-architect", "feature-suggester"],
+      "works_with": ["product-owner", "ddd-architect", "solution-architect", "devops", "backend-dev"],
+      "receives_from": ["product-owner", "ddd-architect", "solution-architect", "feature-suggester"],
       "provides_to": ["frontend-dev", "backend-dev", "devops"]
     }
   }

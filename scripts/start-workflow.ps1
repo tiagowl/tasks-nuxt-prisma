@@ -48,14 +48,47 @@ if (Test-Path $workflowPath) {
     foreach ($phase in $workflow.workflow.phases) {
         Write-Host "`n$($phase.phase)" -ForegroundColor Yellow
         Write-Host "   Agentes: $($phase.agents -join ', ')" -ForegroundColor White
+        if ($phase.optional_agents -and $phase.optional_agents.Count -gt 0) {
+            Write-Host "   Agentes opcionais: $($phase.optional_agents -join ', ')" -ForegroundColor DarkYellow
+        }
         Write-Host "   Duracao: $($phase.duration)" -ForegroundColor White
         Write-Host "   Atividades:" -ForegroundColor White
         foreach ($activity in $phase.activities) {
             Write-Host "     - $activity" -ForegroundColor Gray
         }
+        if ($phase.optional_activities) {
+            foreach ($optAgent in $phase.optional_activities.PSObject.Properties) {
+                Write-Host "   Atividades opcionais ($($optAgent.Name)):" -ForegroundColor DarkYellow
+                foreach ($optActivity in $optAgent.Value) {
+                    Write-Host "     - $optActivity" -ForegroundColor DarkGray
+                }
+            }
+        }
         Write-Host "   Outputs:" -ForegroundColor White
         foreach ($output in $phase.outputs) {
             Write-Host "     - $output" -ForegroundColor Gray
+        }
+        if ($phase.optional_outputs) {
+            foreach ($optAgent in $phase.optional_outputs.PSObject.Properties) {
+                Write-Host "   Outputs opcionais ($($optAgent.Name)):" -ForegroundColor DarkYellow
+                foreach ($optOutput in $optAgent.Value) {
+                    Write-Host "     - $optOutput" -ForegroundColor DarkGray
+                }
+            }
+        }
+    }
+
+    # Exibir agentes opcionais do workflow
+    if ($workflow.workflow.optional_agents) {
+        Write-Host "`nAgentes Opcionais do Workflow:" -ForegroundColor Cyan
+        foreach ($optAgent in $workflow.workflow.optional_agents) {
+            Write-Host "`n  $($optAgent.name) ($($optAgent.role))" -ForegroundColor DarkYellow
+            Write-Host "   Fases recomendadas: $($optAgent.recommended_phases -join ', ')" -ForegroundColor White
+            Write-Host "   Quando usar:" -ForegroundColor White
+            foreach ($when in $optAgent.when_to_use) {
+                Write-Host "     - $when" -ForegroundColor Gray
+            }
+            Write-Host "   Ativar: ./scripts/activate-agent.ps1 $($optAgent.role)" -ForegroundColor Green
         }
     }
     
