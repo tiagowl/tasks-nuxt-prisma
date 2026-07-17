@@ -1,0 +1,9 @@
+{
+  "pid": 8424,
+  "startedAt": 1784299910146,
+  "command": "dev",
+  "cwd": "D:/Tiago/Área de Trabalho/Projetos/tasks-nuxt-prisma/src/frontend",
+  "port": 3000,
+  "hostname": "::1",
+  "url": "http://[::1]:3000"
+}

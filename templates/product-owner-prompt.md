@@ -45,7 +45,35 @@ Como Product Owner, preciso que você:
 ### Para Análise de Requisitos
 ```
 Analise os seguintes requisitos e crie user stories detalhadas:
-[Inserir requisitos aqui]
+- sistema web para gerenciar tarefas;
+
+- crud de tarefas, com título, data de publicação;
+
+- crud de subtarefas vinculadas a uma tarefa;
+
+- marcar/desmarcar subtatefa como concluído;
+
+- se a tarefa possuir subtarefas mas nenhuma subtarefa vinculada a ela estiver marcada como concluida, mostrar o status todo;
+
+- se a tarefa possuir subtarefas e algumas subtarefas vinculada a ela estiver marcada como concluída, a tarefa estará com o status doing;
+
+- se a tarefa possuir todas as subtarefas vinculadas a ela como concluída a tarefa estará com o status done;
+
+- mostrar visão kanban separados as tarefas nos status em que estão;
+
+- para criar/editar tarefa, aparecer um drawer da direita pra esquerda com o formulário;
+
+- o sistema sera feito com o framework nuxt 4, tailwind e pinia;
+
+- para interagir com o banco de dados usar a api routes do nuxt com prisma orm;
+
+- o código relacionado ao backend deve estar na pasta ./src/frontend/server, oragnizado em modulos, cada modulo tera controller, service, repository, schemas e types, na api route validar os dados com os schemas e executar o controller;
+
+- o banco de dados sera o neon;
+
+- o visual do sistema deve ser bonito, elegante e profissional, com boas praticas de ux e ui design;
+
+- antes de acessar o sistema, ter a funcionalidade de login, com as credenciais configuradas no .env;
 
 Foque em:
 - Identificar personas
