@@ -54,22 +54,6 @@
             <span>{{ loading ? 'Entrando...' : 'Entrar' }}</span>
           </button>
         </form>
-
-        <div class="mt-6 pt-5 border-t border-neutral-200">
-          <p class="text-xs font-medium text-neutral-500 uppercase tracking-wide mb-3">Credenciais de teste</p>
-          <div class="bg-neutral-50 rounded-md px-4 py-3 space-y-1.5 text-sm text-neutral-700">
-            <p><span class="text-neutral-500">Usuário:</span> <span class="font-mono font-medium">{{ TEST_USERNAME }}</span></p>
-            <p><span class="text-neutral-500">Senha:</span> <span class="font-mono font-medium">{{ TEST_PASSWORD }}</span></p>
-          </div>
-          <button
-            type="button"
-            :disabled="loading"
-            class="mt-3 w-full py-2 px-4 border border-primary-300 text-primary-600 font-medium rounded-md hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-            @click="fillTestCredentials"
-          >
-            Preencher credenciais de teste
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -84,21 +68,11 @@ definePageMeta({
 const router = useRouter()
 const authStore = useAuthStore()
 
-const TEST_USERNAME = 'admin'
-const TEST_PASSWORD = 'admin123'
-
 const username = ref('')
 const password = ref('')
 const loading = ref(false)
 const errorMessage = ref('')
 const errors = ref({ username: '', password: '' })
-
-function fillTestCredentials() {
-  username.value = TEST_USERNAME
-  password.value = TEST_PASSWORD
-  errors.value = { username: '', password: '' }
-  errorMessage.value = ''
-}
 
 async function handleLogin() {
   errorMessage.value = ''
